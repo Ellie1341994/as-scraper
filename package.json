@@ -4,7 +4,8 @@
   "description": "austin software interview exercise",
   "main": "index.js",
   "scripts": {
-    "cypress:open": "cypress open"
+    "cypress:open": "cypress open",
+    "cypress:testSeats" : "cypress run --spec cypress/integration/seat_selection_spec.js"
   },
   "author": "",
   "license": "ISC",
