@@ -18,6 +18,6 @@ then execute the test with the following command (you can also add "page=<urlStr
 ```
  npm run cypress:testSeats -- -e first_seat=<seatNumber>,second_seat=<seatNumber>
 ```
-where seatNumber is a positive integer between 18 and 60
+where seatNumber is a positive integer between 18-29 31-45 and 50-60
 
 ## Example
