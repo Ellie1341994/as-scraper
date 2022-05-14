@@ -19,11 +19,18 @@ describe('Travel seat selection with screenshot test', () => {
           cy.contains('Select').click()
         }
       )
-    cy.get(`[aria-label*="Seat Selection"]`).screenshot()
   }
-  it('Selects the first seat and takes a screenshot', generateSeatSelectionFunction(FIRST_SEAT_NUMBER, true))
- it('Flips travel destination', () => {
-   cy.get(`[id="itinerary-select-select"]`).select("JFK → PRN")
- })
- it('Selects the second seat and takes a screenshot', generateSeatSelectionFunction(SECOND_SEAT_NUMBER))
+  it('Selects the first seat', generateSeatSelectionFunction(FIRST_SEAT_NUMBER, true))
+  it('Moves to the next seat selection', () => {
+    cy.contains("Next flight").click()
+  })
+  it('Selects the second seat', generateSeatSelectionFunction(SECOND_SEAT_NUMBER))
+  it('Confirms selections and takes a screenshot', () => {
+    cy.contains("Confirm Selection").click().then( () =>
+      {
+            cy.wait(3000)
+            cy.get(`section`).last().screenshot('Seat Selection')
+      }
+    )
+  })
 })
