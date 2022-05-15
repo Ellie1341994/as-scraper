@@ -5,6 +5,7 @@ to select two random seats on the rows at https://static.gordiansoftware.com/
 then take a screenshot of how it looks right after
 
 ## Usage
+Add required dependencies
 ```
 npm install
 ```
