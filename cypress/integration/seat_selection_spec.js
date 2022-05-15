@@ -6,7 +6,6 @@ describe('Travel seat selection with screenshot test', () => {
   let exitRowsWithItsCriteriaAccepted = []
   let generateSeatSelectionFunction = (seat, visitPage = false) => () => {
     visitPage && cy.visit(PAGE)
-    console.log(PAGE)
     cy.get(`[aria-label*="Seat: ${seat}"]`)
       .then(seats =>
         {
@@ -26,8 +25,8 @@ describe('Travel seat selection with screenshot test', () => {
   })
   it('Selects the second seat', generateSeatSelectionFunction(SECOND_SEAT_NUMBER))
   it('Confirms selections and takes a screenshot', () => {
-    cy.contains("Confirm Selection").click().then( () =>
-      {
+    cy.contains("Confirm Selection").click()
+      .then( () => {
             cy.wait(3000)
             cy.get(`section`).last().screenshot('Seat Selection')
       }
