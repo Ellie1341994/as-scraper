@@ -1,6 +1,6 @@
 const EXIT_ROWS = [50,31,21]
-const FIRST_SEAT_NUMBER = Cypress.env('first_seat') || 21;
-const SECOND_SEAT_NUMBER = Cypress.env('second_seat') || 21;
+const FIRST_ROW_NUMBER = Cypress.env('first_seat') || 21;
+const SECOND_ROW_NUMBER = Cypress.env('second_seat') || 21;
 const PAGE = Cypress.env('page')
 describe('Travel seat selection with screenshot test', () => {
   let exitRowsWithItsCriteriaAccepted = []
@@ -19,11 +19,11 @@ describe('Travel seat selection with screenshot test', () => {
   it('Visits seat selection test page',() => {
     cy.visit(PAGE)
   })
-  it('Selects the first seat', generateSeatSelectionFunction(FIRST_SEAT_NUMBER, true))
+  it('Selects the first seat', generateSeatSelectionFunction(FIRST_ROW_NUMBER, true))
   it('Moves to the next seat selection', () => {
     cy.contains("Next flight").click()
   })
-  it('Selects the second seat', generateSeatSelectionFunction(SECOND_SEAT_NUMBER))
+  it('Selects the second seat', generateSeatSelectionFunction(SECOND_ROW_NUMBER))
   it('Confirms selections and takes a screenshot', () => {
     cy.contains("Confirm Selection").click()
       .then(() => {
