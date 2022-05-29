@@ -4,7 +4,7 @@ const SECOND_ROW_NUMBER = Cypress.env('second_seat') || 21;
 const PAGE = Cypress.env('page')
 describe('Travel seat selection with screenshot test', () => {
   let exitRowsWithItsCriteriaAccepted = []
-  let generateSeatSelectionFunction = (row) => () => {
+  const generateSeatSelectionFunction = (row) => () => {
     cy.get(`[aria-label*="Seat: ${row}"]`)
       .then(seats => {
           const RANDOM_INDEX = Math.floor(Math.random() * seats.length);
